@@ -183,7 +183,7 @@ export default function ProjectStoryExperience({
       ref={rootRef}
       className="min-h-screen overflow-x-clip bg-black text-white"
     >
-      <section className="relative h-[100svh] w-full overflow-hidden bg-black">
+      <section className="relative aspect-video w-full overflow-hidden bg-black md:h-[100svh] md:aspect-auto">
         {isTula ? (
           <LazyPortfolioVideo
             video={TULA_TRAILER}
@@ -197,7 +197,7 @@ export default function ProjectStoryExperience({
             fill
             preload
             sizes="100vw"
-            className="object-cover"
+            className="object-contain md:object-cover"
           />
         )}
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.18)_0%,transparent_42%,rgba(0,0,0,0.72)_100%)]" />
@@ -245,13 +245,11 @@ export default function ProjectStoryExperience({
         {projectVideos.map((video) => (
           <figure
             key={video.videoSrc}
-            className="m-0 flex w-full items-center"
-            style={{ minHeight: "115svh" }}
+            className="m-0 flex w-full items-center py-8 md:min-h-[115svh] md:py-0"
           >
             <div
               data-project-frame
-              className="relative overflow-hidden bg-[#080808]"
-              style={{ width: "100vw", height: "100svh" }}
+              className="relative aspect-video w-full overflow-hidden bg-[#080808] md:h-[100svh] md:aspect-auto"
             >
               <LazyPortfolioVideo video={video} />
               <figcaption className="sr-only">{video.title}</figcaption>
@@ -259,10 +257,7 @@ export default function ProjectStoryExperience({
           </figure>
         ))}
 
-        <section
-          className="flex w-full items-center"
-          style={{ minHeight: "115svh" }}
-        >
+        <section className="flex w-full items-center py-8 md:min-h-[115svh] md:py-0">
           <div className="w-full">
             <a
               data-project-frame
@@ -270,8 +265,7 @@ export default function ProjectStoryExperience({
               target="_blank"
               rel="noreferrer"
               aria-label={`Open the ${project.name} web app in a new tab`}
-              className="group relative block overflow-hidden bg-[#080808] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-              style={{ width: "100vw", height: "100svh" }}
+              className="group relative block aspect-video w-full overflow-hidden bg-[#080808] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white md:h-[100svh] md:aspect-auto"
             >
               <Image
                 src={project.webAppImage}
@@ -279,7 +273,7 @@ export default function ProjectStoryExperience({
                 fill
                 sizes="(max-width: 768px) 100vw, 98vw"
                 unoptimized={project.webAppImage.startsWith("http")}
-                className="object-cover"
+                className="object-contain md:object-cover"
               />
               <span className="absolute bottom-4 right-4 flex h-11 w-11 items-center justify-center bg-white text-black transition-transform duration-500 group-hover:rotate-45 sm:bottom-6 sm:right-6 sm:h-13 sm:w-13">
                 <FiArrowUpRight className="h-5 w-5" aria-hidden="true" />
@@ -427,7 +421,7 @@ function LazyPortfolioVideo({
         sizes="100vw"
         unoptimized
         aria-hidden="true"
-        className={`object-cover transition-opacity duration-500 ${
+        className={`object-contain transition-opacity duration-500 md:object-cover ${
           isReady ? "opacity-0" : "opacity-100"
         }`}
       />
@@ -443,7 +437,7 @@ function LazyPortfolioVideo({
           aria-label={`${video.title} film`}
           onLoadedData={markReady}
           onCanPlay={markReady}
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${
+          className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-500 md:object-cover ${
             isReady ? "opacity-100" : "opacity-0"
           }`}
         >

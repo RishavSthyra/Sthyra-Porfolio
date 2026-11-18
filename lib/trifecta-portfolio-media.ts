@@ -6,6 +6,21 @@ const POSTER_ROOT = `${CDN}/images/Edited_website_amenities_1080p_avif`;
 
 export const TRIFECTA_AMENITY_VIDEOS: PortfolioVideo[] = [
   {
+    title: "Birdbath",
+    videoSrc: `${VIDEO_ROOT}/Birdbath%20Website%204K.mp4`,
+    posterSrc: `${POSTER_ROOT}/Birdbath_website_4k_first_frame.avif`,
+  },
+  {
+    title: "Cricket Pitch",
+    videoSrc: `${VIDEO_ROOT}/Cricket.mp4`,
+    posterSrc: `${POSTER_ROOT}/Full_cricket__website_4k_first_frame.avif`,
+  },
+  {
+    title: "Cycle Track",
+    videoSrc: `${VIDEO_ROOT}/Cycle.mp4`,
+    posterSrc: `${POSTER_ROOT}/Cycle_website_4k_first_frame.avif`,
+  },
+  {
     title: "Party Lawn",
     videoSrc: `${VIDEO_ROOT}/Party%20Lange%20Website%204K.mp4`,
     posterSrc: `${POSTER_ROOT}/party_Lange_website_4k_first_frame.avif`,
@@ -31,11 +46,6 @@ export const TRIFECTA_AMENITY_VIDEOS: PortfolioVideo[] = [
     posterSrc: `${POSTER_ROOT}/Basketballl_website_4k_first_frame.avif`,
   },
   {
-    title: "Birdbath",
-    videoSrc: `${VIDEO_ROOT}/Birdbath%20Website%204K.mp4`,
-    posterSrc: `${POSTER_ROOT}/Birdbath_website_4k_first_frame.avif`,
-  },
-  {
     title: "Buddha Garden",
     videoSrc: `${VIDEO_ROOT}/Buddha.mp4`,
     posterSrc: `${POSTER_ROOT}/Buddha_first_frame_1080p.avif`,
@@ -51,11 +61,6 @@ export const TRIFECTA_AMENITY_VIDEOS: PortfolioVideo[] = [
     posterSrc: `${POSTER_ROOT}/camp_Fire_website_4k_first_frame.avif`,
   },
   {
-    title: "Cycle Track",
-    videoSrc: `${VIDEO_ROOT}/Cycle.mp4`,
-    posterSrc: `${POSTER_ROOT}/Cycle_website_4k_first_frame.avif`,
-  },
-  {
     title: "Football",
     videoSrc: `${VIDEO_ROOT}/Football%20Website%204K.mp4`,
     posterSrc: `${POSTER_ROOT}/Football_website_4k_first_frame.avif`,
@@ -64,11 +69,6 @@ export const TRIFECTA_AMENITY_VIDEOS: PortfolioVideo[] = [
     title: "Forest Walk",
     videoSrc: `${VIDEO_ROOT}/Forest%20Website%204K.mp4`,
     posterSrc: `${POSTER_ROOT}/Forest_website_4k_first_frame.avif`,
-  },
-  {
-    title: "Cricket Pitch",
-    videoSrc: `${VIDEO_ROOT}/Cricket.mp4`,
-    posterSrc: `${POSTER_ROOT}/Full_cricket__website_4k_first_frame.avif`,
   },
   {
     title: "Kids Play Area",

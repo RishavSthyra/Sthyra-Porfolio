@@ -53,7 +53,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
   displaySocials = true,
   displayItemNumbering = true,
   className,
-  logoUrl = '/src/assets/logos/reactbits-gh-white.svg',
+  logoUrl = '/sthyra-studios-logo-white.png',
   menuButtonColor = '#fff',
   openMenuButtonColor = '#fff',
   changeMenuColorOnOpen = true,
@@ -444,10 +444,10 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
           <div className="sm-header-shell pointer-events-auto flex w-full items-center justify-between">
             <div className="sm-logo flex items-center select-none" aria-label="Logo">
               <Image
-                src={logoUrl || '/src/assets/logos/reactbits-gh-white.svg'}
-                alt="Logo"
-                width={110}
-                height={32}
+                src={logoUrl || '/sthyra-studios-logo-white.png'}
+                alt="Sthyra Studios"
+                width={585}
+                height={244}
                 priority
                 fetchPriority="high"
                 sizes="110px"

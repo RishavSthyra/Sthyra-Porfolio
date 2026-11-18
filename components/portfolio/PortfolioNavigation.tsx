@@ -42,7 +42,7 @@ export default function PortfolioNavigation() {
       openMenuButtonColor="#ffffff"
       changeMenuColorOnOpen
       colors={["#d8d5cd", "#aaa69c", "#77736c"]}
-      logoUrl="/sthyra_logo_new.png"
+      logoUrl="/sthyra-studios-logo-white.png"
       accentColor="#ffffff"
       className="mix-blend-difference"
       isFixed

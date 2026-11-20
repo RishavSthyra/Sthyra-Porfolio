@@ -3,7 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useLayoutEffect, useRef, type MouseEvent } from "react";
+import {
+  useLayoutEffect,
+  useRef,
+  type CSSProperties,
+  type MouseEvent,
+} from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HomePageFooter from "@/components/HomePageFooter";
@@ -16,6 +21,8 @@ const PROJECTS = [
     edition: "Veranza",
     alt: "Aerial view of the Trifecta Veranza residential towers and landscape",
     objectPosition: "center center",
+    width: 3840,
+    height: 2160,
   },
   {
     slug: "tula-whisper-of-trees",
@@ -24,6 +31,8 @@ const PROJECTS = [
     edition: "Whisper of Trees",
     alt: "Aerial view of Tula Whisper of Trees surrounded by its landscape",
     objectPosition: "center center",
+    width: 4798,
+    height: 3041,
   },
   {
     slug: "aadhya-serene",
@@ -32,6 +41,8 @@ const PROJECTS = [
     edition: "Serene",
     alt: "Aerial view of Aadhya Serene among mature trees at dusk",
     objectPosition: "center 46%",
+    width: 3700,
+    height: 2314,
   },
 ] as const;
 
@@ -50,15 +61,22 @@ function ProjectPanel({
     <article
       data-project-panel
       style={{ zIndex: index + 1 }}
-      className="sticky top-0 h-[100svh] w-full overflow-hidden bg-[#111]"
+      className="relative w-full bg-[#111] xl:sticky xl:top-0 xl:h-[100svh] xl:overflow-hidden"
     >
       <Link
         href={`/portfolio/${project.slug}`}
         onClick={(event) => onOpen(event, project)}
         aria-label={`Explore ${project.name} ${project.edition}`}
-        className="group absolute inset-0 block overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-[-5px] focus-visible:outline-white"
+        className="group relative block w-full overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-[-5px] focus-visible:outline-white xl:absolute xl:inset-0"
       >
-        <div className="absolute inset-0">
+        <div
+          className="relative aspect-[var(--project-aspect)] w-full xl:absolute xl:inset-0 xl:aspect-auto"
+          style={
+            {
+              "--project-aspect": `${project.width} / ${project.height}`,
+            } as CSSProperties
+          }
+        >
           <Image
             src={project.image}
             alt={project.alt}
@@ -66,7 +84,7 @@ function ProjectPanel({
             sizes="100vw"
             quality={90}
             style={{ objectPosition: project.objectPosition }}
-            className="object-cover"
+            className="object-contain xl:object-cover"
           />
         </div>
 
@@ -124,22 +142,29 @@ export default function PortfolioIndexExperience() {
             },
             "-=0.68",
           );
-
-        gsap.utils.toArray<HTMLElement>("[data-project-panel]").forEach((panel) => {
-          const labels = panel.querySelector("[data-project-labels]");
-
-          gsap.from(labels, {
-            opacity: 0,
-            y: 24,
-            duration: 0.8,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: panel,
-              start: "top 72%",
-            },
-          });
-        });
       });
+
+      media.add(
+        "(min-width: 1280px) and (prefers-reduced-motion: no-preference)",
+        () => {
+          gsap.utils
+            .toArray<HTMLElement>("[data-project-panel]")
+            .forEach((panel) => {
+              const labels = panel.querySelector("[data-project-labels]");
+
+              gsap.from(labels, {
+                opacity: 0,
+                y: 24,
+                duration: 0.8,
+                ease: "power3.out",
+                scrollTrigger: {
+                  trigger: panel,
+                  start: "top 72%",
+                },
+              });
+            });
+        },
+      );
     }, rootRef);
 
     return () => {
